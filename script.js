@@ -15,12 +15,12 @@ let songItems = Array.from(document.getElementsByClassName('songItem'));
 
 
 let songs =[
-    {songName:"Salam-e Ishq1",filePath:"songs/1.mp3" ,coverPath:"covers/1.jpg"},
-    {songName:"Salam-e Ishq2",filePath:"songs/2.mp3" ,coverPath:"covers/2.jpg"},
-    {songName:"Salam-e Ishq3",filePath:"songs/3.mp3" ,coverPath:"covers/3.jpg"},
-    {songName:"Salam-e Ishq4",filePath:"songs/4.mp3" ,coverPath:"covers/4.jpg"},
-    {songName:"Salam-e Ishq5",filePath:"songs/5.mp3" ,coverPath:"covers/5.jpg"},
-    {songName:"Salam-e Ishq6",filePath:"songs/6.mp3" ,coverPath:"covers/6.jpg"}
+    {songName:"Amplifier",filePath:"songs/1.mp3" ,coverPath:"covers/1.jpg"},
+    {songName:"Khamoshiyan",filePath:"songs/2.mp3" ,coverPath:"covers/2.jpg"},
+    {songName:"Ashayein",filePath:"songs/3.mp3" ,coverPath:"covers/3.jpg"},
+    {songName:"Bol do na zara",filePath:"songs/4.mp3" ,coverPath:"covers/4.jpg"},
+    {songName:"Aaj fir tumpe pyar",filePath:"songs/5.mp3" ,coverPath:"covers/5.jpg"},
+    {songName:"Dil kyu yeh mera",filePath:"songs/6.mp3" ,coverPath:"covers/6.jpg"}
 ]
 
 songItems.forEach((element,i) => {
@@ -85,13 +85,18 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
 
 document.getElementById('next').addEventListener('click',()=>{
     if(songIndex>=6){
+        console.log(songIndex);
         songIndex=1;
+        console.log(songIndex);
     }else{
+        console.log(songIndex);
         songIndex+=1;
+        console.log(songIndex);
     }
 
     audioElement.src = `songs/${songIndex}.mp3`
-    masterSongName.innerText=songs[songIndex].songName;
+    masterSongName.innerText=songs[songIndex-1].songName;
+    console.log(songs[songIndex-1].songName);
         audioElement.currentTime=0;
         audioElement.play();
         gif.style.opacity=1;
@@ -107,7 +112,7 @@ document.getElementById('previous').addEventListener('click',()=>{
     }
 
     audioElement.src = `songs/${songIndex}.mp3`
-        masterSongName.innerText=songs[songIndex].songName;
+        masterSongName.innerText=songs[songIndex-1].songName;
         audioElement.currentTime=0;
         audioElement.play();
         gif.style.opacity=1;
